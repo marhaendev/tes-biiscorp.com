@@ -1,8 +1,6 @@
 import 'dart:convert';
-
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
-
 import 'data-login.dart';
 
 class GetApi extends GetxController {
@@ -21,7 +19,7 @@ class GetApi extends GetxController {
     int currentPage = int.parse(page.value);
     page.value = (currentPage + 1).toString();
     update();
-    print(page);
+    // print(page);
   }
 
   void back() {
@@ -29,7 +27,7 @@ class GetApi extends GetxController {
     if (currentPage > 1) {
       page.value = (currentPage - 1).toString();
       update();
-      print(page);
+      // print(page);
     }
   }
 

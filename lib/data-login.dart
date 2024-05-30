@@ -27,19 +27,10 @@ class DataLoginPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border(
-                          left: BorderSide(color: Colors.blue, width: 5)),
-                    ),
-                    child: Text(
+                  blockquote(
                       "Data diambil dari \n${api.urlDataLogin}${GetApi.page}",
-                      style: GoogleFonts.firaCode(),
-                    ),
-                  ),
+                      blue,
+                      5),
                   Theme(
                     data:
                         ThemeData().copyWith(dividerColor: Colors.transparent),
@@ -48,14 +39,12 @@ class DataLoginPage extends StatelessWidget {
                         "response:",
                         style: GoogleFonts.firaCode(),
                       ),
-                      childrenPadding: EdgeInsets.zero,
+                      childrenPadding: noEdge,
                       children: [
                         SizedBox(
-                          height:
-                              Get.height * 0.5, 
+                          height: Get.height * 0.5,
                           child: ListView.builder(
-                            itemCount:
-                                1, 
+                            itemCount: 1,
                             itemBuilder: (BuildContext context, int index) {
                               return SingleChildScrollView(
                                 child: Text(
@@ -88,34 +77,22 @@ class DataLoginPage extends StatelessWidget {
                   ),
                   if (snapshot.data!.isEmpty)
                     Expanded(child: Center(child: Text("Tidak Ada Response"))),
-                  
                   Expanded(
                     child: ListView(
                       children: snapshot.data!.map<Widget>((data) {
                         return Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(0),
-                          ),
-                          margin: EdgeInsets.symmetric(
-                              vertical: 10, horizontal: 15),
+                          shape: radius(4),
+                          margin: edge(10, 15),
                           child: ListTile(
-                            tileColor: Colors
-                                .blue[50], 
                             leading: Text(
                               "${data['id']}",
                               style: TextStyle(
-                                  color: Color(int.parse(
-                                      '0xFF${data['color'].replaceFirst('#', '')}'))), 
+                                  color: Color(colorHex(data['color']))),
                             ),
-                            title: Text(
-                              '${data['name']}',
-                              style: TextStyle(
-                                  color: Colors.black), 
-                            ),
+                            title: Text('${data['name']}'),
                             subtitle: Text(
                               data['year'].toString(),
-                              style: TextStyle(
-                                  color: Colors.grey), 
+                              style: TextStyle(color: grey),
                             ),
                           ),
                         );

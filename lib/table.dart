@@ -3,13 +3,16 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tes/constant.dart';
 import 'api.dart';
 
 class TablePage extends StatelessWidget {
+  final GetApi api = Get.find<GetApi>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Data Table')),
+      appBar: appbar('Data Table'),
       body: GetBuilder<GetApi>(
         builder: (apiController) {
           return FutureBuilder<List<dynamic>>(
@@ -24,19 +27,10 @@ class TablePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border(
-                          left: BorderSide(color: Colors.blue, width: 5)),
-                    ),
-                    child: Text(
+                  blockquote(
                       "Data diambil dari \n${Get.find<GetApi>().urlUsers}${GetApi.page}",
-                      style: GoogleFonts.firaCode(),
-                    ),
-                  ),
+                      blue,
+                      5),
                   Theme(
                     data:
                         ThemeData().copyWith(dividerColor: Colors.transparent),
@@ -48,8 +42,7 @@ class TablePage extends StatelessWidget {
                       childrenPadding: EdgeInsets.zero,
                       children: [
                         SizedBox(
-                          height:
-                              Get.height * 0.5, // Atur tinggi sesuai kebutuhan
+                          height: Get.height * 0.5,
                           child: ListView.builder(
                             itemCount: 1,
                             itemBuilder: (BuildContext context, int index) {
@@ -70,15 +63,13 @@ class TablePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                          onPressed: () => Get.find<GetApi>()
-                              .back(), // Memanggil method back dari GetApi
+                          onPressed: () => apiController.back(),
                           child: Row(
                             children: [Icon(Icons.arrow_left), Text("Back")],
                           )),
-                      SizedBox(width: 20),
+                      boxX(20),
                       ElevatedButton(
-                          onPressed: () => Get.find<GetApi>()
-                              .next(), // Memanggil method next dari GetApi
+                          onPressed: () => apiController.next(),
                           child: Row(
                             children: [Text("Next"), Icon(Icons.arrow_right)],
                           )),

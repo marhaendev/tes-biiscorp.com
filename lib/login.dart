@@ -17,34 +17,22 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Login')),
+      appBar: appbar("Login"),
       body: SingleChildScrollView(
         child: GetBuilder<GetApi>(
           builder: (apiController) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Container(
-                  alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.all(10),
-                  padding: EdgeInsets.all(10),
-                  decoration: BoxDecoration(
-                    border:
-                        Border(left: BorderSide(color: Colors.blue, width: 5)),
-                  ),
-                  child: Text(
-                    "post ke \n${api.el}",
-                    style: GoogleFonts.firaCode(),
-                  ),
-                ),
+                blockquote("post ke \n${api.el}", blue, 5),
                 boxY(10),
+                blockquote("username: ${api.loginUser}", teal, 5),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.all(10),
-                  padding: padding(0, 10),
+                  margin: edge(10),
+                  padding: edge(0, 10),
                   decoration: BoxDecoration(
-                    border:
-                        Border(left: BorderSide(color: Colors.teal, width: 5)),
+                    border: Border(left: BorderSide(color: teal, width: 5)),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -66,11 +54,10 @@ class LoginPage extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.centerLeft,
-                  margin: EdgeInsets.all(10),
-                  padding: padding(0, 10),
+                  margin: edge(10),
+                  padding: edge(0, 10),
                   decoration: BoxDecoration(
-                    border:
-                        Border(left: BorderSide(color: Colors.teal, width: 5)),
+                    border: Border(left: BorderSide(color: teal, width: 5)),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -118,10 +105,10 @@ class LoginPage extends StatelessWidget {
                 boxY(10),
                 Center(
                   child: Padding(
-                    padding: const EdgeInsets.all(30.0),
+                    padding: edge(30.0),
                     child: Card(
                       child: Padding(
-                        padding: const EdgeInsets.all(10.0),
+                        padding: edge(10.0),
                         child: Column(
                           children: [
                             Text(
@@ -174,7 +161,6 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 32),
               ],
             );
           },

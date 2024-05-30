@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +10,7 @@ class ListPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Data List')),
+      appBar: appbar('Data List'),
       body: GetBuilder<GetApi>(
         builder: (apiController) {
           return FutureBuilder<List<dynamic>>(
@@ -27,39 +25,27 @@ class ListPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Container(
-                    alignment: Alignment.centerLeft,
-                    margin: EdgeInsets.all(10),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      border: Border(
-                          left: BorderSide(color: Colors.blue, width: 5)),
-                    ),
-                    child: Text(
+                  blockquote(
                       "Data diambil dari \n${api.urlUsers}${GetApi.page}",
-                      style: GoogleFonts.firaCode(),
-                    ),
-                  ),
+                      blue,
+                      3),
                   Theme(
-                    data:
-                        ThemeData().copyWith(dividerColor: Colors.transparent),
+                    data: ThemeData().copyWith(dividerColor: transparent),
                     child: ExpansionTile(
                       title: Text(
                         "response:",
                         style: GoogleFonts.firaCode(),
                       ),
-                      childrenPadding: EdgeInsets.zero,
+                      childrenPadding: noEdge,
                       children: [
                         SizedBox(
                           height: Get.height * 0.5,
                           child: ListView.builder(
-                            itemCount:
-                                1, // Hanya satu item untuk menampilkan data JSON
+                            itemCount: 1,
                             itemBuilder: (BuildContext context, int index) {
                               return SingleChildScrollView(
                                 child: Text(
-                                  JsonEncoder.withIndent('  ')
-                                      .convert(snapshot.data),
+                                  jsonBeauty(snapshot.data),
                                   style: GoogleFonts.robotoMono(),
                                 ),
                               );
@@ -92,11 +78,8 @@ class ListPage extends StatelessWidget {
                       child: ListView(
                         children: snapshot.data!.map<Widget>((data) {
                           return Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(50),
-                            ),
-                            margin: EdgeInsets.symmetric(
-                                vertical: 10, horizontal: 15),
+                            shape: radius(50),
+                            margin: edge(10, 15),
                             child: ListTile(
                               leading: CircleAvatar(
                                 radius: 30,
