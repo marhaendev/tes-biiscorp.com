@@ -26,7 +26,6 @@ class LoginPage extends StatelessWidget {
               children: [
                 blockquote("post ke \n${api.el}", blue, 5),
                 boxY(10),
-                blockquote("username: ${api.loginUser}", teal, 5),
                 Container(
                   alignment: Alignment.centerLeft,
                   margin: edge(10),
