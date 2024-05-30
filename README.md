@@ -23,6 +23,6 @@ https://reqres.in/api/login
 ```
 
 ## State Management
-Untuk mengelola state management, aplikasi ini menggunakan **GetX** saja.
+Untuk mengelola state management, aplikasi ini menggunakan **GetX**.
 
 
