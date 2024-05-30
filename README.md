@@ -1,16 +1,28 @@
-# tes
+# Tes Skill
 
-A new Flutter project.
+Aplikasi ini dibuat untuk memenuhi tes kill pada perusahaan biiscorp.com
 
-## Getting Started
+# Task
+- Membuat Aplikasi menggunakan flutter
+- Memiliki halaman list data
+- Menerapkan Api dalam aplikasi
+- Menggunakan GetX/Bloc
 
-This project is a starting point for a Flutter application.
+# Implementasi
+Pada aplikasi ini, saya membuat aplikasi yang menampilkan:
+1. Home
+2. List data
+3. Table Data
+4. Login
 
-A few resources to get you started if this is your first Flutter project:
+# API
+Menggunakan Api dari
+```
+https://reqres.in/api/users
+https://reqres.in/api/login
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## State Management
+Untuk mengelola state management, aplikasi ini menggunakan **GetX** saja.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
