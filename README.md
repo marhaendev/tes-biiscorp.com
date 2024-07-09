@@ -2,6 +2,8 @@
 
 Aplikasi ini dibuat untuk memenuhi tes kill pada perusahaan biiscorp.com
 
+status: **belum diterima**
+
 # Task
 - Membuat Aplikasi menggunakan flutter
 - Memiliki halaman list data
